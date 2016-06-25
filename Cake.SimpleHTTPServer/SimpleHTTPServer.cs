@@ -13,8 +13,15 @@ namespace Cake.SimpleHTTPServer {
 		"default.html",
 		"default.htm" };
 
-		private static IDictionary<string, string> _mimeTypeMappings = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase) {
-			  	{"ai", "application/postscript"},
+		private static IDictionary<string, string> _mimeTypeMappings = 
+			new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase) {
+
+				{"ico", "image/x-icon"},
+				{"woff2", "application/font-woff2" },
+				{"woff", "application/font-woff" },
+				{"ttf", "font/truetype"},
+
+				{"ai", "application/postscript"},
 				{"aif", "audio/x-aiff"},
 				{"aifc", "audio/x-aiff"},
 				{"aiff", "audio/x-aiff"},

@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.SimpleHTTPServer", "Ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.SimpleHTTPServer.Tests", "Cake.SimpleHTTPServer.Tests\Cake.SimpleHTTPServer.Tests.csproj", "{6BE3C34C-6EBD-4EAE-8CF4-E777E7AB5B71}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.SimpleHTTPServer.Console", "Cake.SimpleHTTPServer.Console\Cake.SimpleHTTPServer.Console.csproj", "{ACA0B766-3464-44C9-BCE8-AC67370FCEF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{6BE3C34C-6EBD-4EAE-8CF4-E777E7AB5B71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BE3C34C-6EBD-4EAE-8CF4-E777E7AB5B71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BE3C34C-6EBD-4EAE-8CF4-E777E7AB5B71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACA0B766-3464-44C9-BCE8-AC67370FCEF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACA0B766-3464-44C9-BCE8-AC67370FCEF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACA0B766-3464-44C9-BCE8-AC67370FCEF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACA0B766-3464-44C9-BCE8-AC67370FCEF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -28,35 +28,44 @@ Task("pack")
     .Description("Create pack")
     .IsDependentOn("build")
     .Does(() => {
+        Func<string,string> getFullName = (file) => {
+            var fullName = new DirectoryInfo("./Cake.SimpleHTTPServer/bin/Release")
+                .GetFiles()
+                .Where(x => x.Name == file)
+                .First().FullName;
+            return fullName;
+        };
+
         CleanDirectory("./nuget");
-        var dll = "./Cake.SimpleHTTPServer/bin/Release/Cake.SimpleHTTPServer.dll";
-        var full = new System.IO.FileInfo(dll).FullName;
+        var full = getFullName("Cake.SimpleHTTPServer.dll");
+        //var mime = getFullName("MimeTypeMap.dll");
         var version = ParseAssemblyInfo("./Cake.SimpleHTTPServer/Properties/AssemblyInfo.cs").AssemblyVersion;
         var settings   = new NuGetPackSettings {
-                                        //ToolPath                = "./tools/nuget.exe",
-                                        Id                      = "Cake.SimpleHTTPServer",
-                                        Version                 = version,
-                                        Title                   = "Cake.SimpleHTTPServer",
-                                        Authors                 = new[] {"wk"},
-                                        Owners                  = new[] {"wk"},
-                                        Description             = "Cake.SimpleHTTPServer",
-                                        //NoDefaultExcludes       = true,
-                                        Summary                 = "SimpleHTTPServer file change",
-                                        ProjectUrl              = new Uri("https://github.com/wk-j/cake-server"),
-                                        IconUrl                 = new Uri("https://github.com/wk-j/cake-server"),
-                                        LicenseUrl              = new Uri("https://github.com/wk-j/cake-server"),
-                                        Copyright               = "MIT",
-                                        ReleaseNotes            = new [] { "New version"},
-                                        Tags                    = new [] {"Cake", "SimpleHTTPServer" },
-                                        RequireLicenseAcceptance= false,
-                                        Symbols                 = false,
-                                        NoPackageAnalysis       = true,
-                                        Files                   = new [] {
-                                                                             new NuSpecContent { Source = full, Target = "bin/net45" }
-                                                                          },
-                                        BasePath                = "./",
-                                        OutputDirectory         = "./nuget"
-                                    };
+                        //ToolPath                = "./tools/nuget.exe",
+                        Id                      = "Cake.SimpleHTTPServer",
+                        Version                 = version,
+                        Title                   = "Cake.SimpleHTTPServer",
+                        Authors                 = new[] {"wk"},
+                        Owners                  = new[] {"wk"},
+                        Description             = "Cake.SimpleHTTPServer",
+                        //NoDefaultExcludes       = true,
+                        Summary                 = "SimpleHTTPServer file change",
+                        ProjectUrl              = new Uri("https://github.com/wk-j/cake-server"),
+                        IconUrl                 = new Uri("https://github.com/wk-j/cake-server"),
+                        LicenseUrl              = new Uri("https://github.com/wk-j/cake-server"),
+                        Copyright               = "MIT",
+                        ReleaseNotes            = new [] { "New version"},
+                        Tags                    = new [] {"Cake", "SimpleHTTPServer" },
+                        RequireLicenseAcceptance= false,
+                        Symbols                 = false,
+                        NoPackageAnalysis       = true,
+                        Files                   = new [] {
+                                                             new NuSpecContent { Source = full, Target = "bin/net45" },
+                                                             //new NuSpecContent { Source = mime, Target = "bin/net45" },
+                                                          },
+                        BasePath                = "./",
+                        OutputDirectory         = "./nuget"
+                    };
         NuGetPack(settings);
     });
 

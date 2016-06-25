@@ -15,6 +15,10 @@ Task("server")
             Path = "./",
             Port = 8080
         };
-        SimpleHTTPServer(settings);
+        HTTPServer(settings);
     });
 ```
+
+## License
+
+- MIT

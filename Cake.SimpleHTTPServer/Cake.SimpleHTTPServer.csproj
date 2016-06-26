@@ -34,16 +34,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SimpleHTTPServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HTTPServerAlias.cs" />
-    <Compile Include="HTTPServerSettings.cs" />
-    <Compile Include="MimeTypeMap.cs" />
-    <Compile Include="CakeHttpServer.cs" />
-    <Compile Include="MultiThreadHttpServer.cs" />
+    <Compile Include="Server\HTTPServerSettings.cs" />
+    <Compile Include="Server\MimeTypeMap.cs" />
+    <Compile Include="Server\CakeHttpServer.cs" />
+    <Compile Include="Server\MultiThreadHttpServer.cs" />
+    <Compile Include="Server\SimpleHTTPServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Server\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,9 +12,6 @@ namespace Cake.SimpleHTTPServer.Tests {
 			//var server = new SimpleHTTPServer(path, 8000);
 			var server = new CakeHttpServer(path, 8000);
 			server.Start();
-
-			while(Console.ReadLine() != "q") {
-			}
 		}
 	}
 }

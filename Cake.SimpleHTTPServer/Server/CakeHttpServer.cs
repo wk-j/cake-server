@@ -29,6 +29,7 @@ namespace Cake.SimpleHTTPServer {
 		}
 
 		private void ProcessRequest(HttpListenerContext context) {
+
 			string filename = context.Request.Url.AbsolutePath;
 			Console.WriteLine(filename);
 			filename = filename.Substring(1);

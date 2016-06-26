@@ -15,9 +15,13 @@ namespace Cake.SimpleHTTPServer {
 
 		[CakeMethodAlias]
 		public static void HTTPServer(this ICakeContext context, HTTPServerSettings settings) {
-			
+			/*
 			var server = new SimpleHTTPServer(settings.Path, settings.Port);
 			server.Start();
+			*/
+
+			var server = new MultiThreadHttpServer(30);
+			server.Start(settings.Path, settings.Port);
 		}
 
 	}

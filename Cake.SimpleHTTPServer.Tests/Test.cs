@@ -8,11 +8,13 @@ namespace Cake.SimpleHTTPServer.Tests {
 		[Test()]
 		public void TestCase() {
 			var path = "/Users/wk/Source/project/practika/sale-tracking-admin";
-			path = "./";
-			var server = new SimpleHTTPServer(path, 8000);
+			//path = "./";
+			//var server = new SimpleHTTPServer(path, 8000);
+			var server = new CakeHttpServer(path, 8000);
 			server.Start();
 
-
+			while(Console.ReadLine() != "q") {
+			}
 		}
 	}
 }

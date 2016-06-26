@@ -39,6 +39,8 @@
     <Compile Include="HTTPServerAlias.cs" />
     <Compile Include="HTTPServerSettings.cs" />
     <Compile Include="MimeTypeMap.cs" />
+    <Compile Include="CakeHttpServer.cs" />
+    <Compile Include="MultiThreadHttpServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

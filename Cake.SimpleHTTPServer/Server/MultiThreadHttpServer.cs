@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace Cake.SimpleHTTPServer {
 
-	public class MultiThreadHttpServer : IDisposable {
+	internal class MultiThreadHttpServer : IDisposable {
 		private readonly HttpListener _listener;
 		private readonly Thread _listenerThread;
 		private readonly Thread[] _workers;

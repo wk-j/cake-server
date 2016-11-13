@@ -4,7 +4,7 @@ using System.Net;
 using MimeTypes;
 
 namespace Cake.SimpleHTTPServer {
-	public class CakeHttpServer {
+	internal class CakeHttpServer {
 
 		private readonly int _port;
 		private readonly string _path;

@@ -7,9 +7,7 @@ using MimeTypes;
 
 namespace Cake.SimpleHTTPServer {
 
-
-
-	public class SimpleHTTPServer {
+	internal class SimpleHTTPServer {
 		private readonly string[] _indexFiles = {
 		"index.html",
 		"index.htm",

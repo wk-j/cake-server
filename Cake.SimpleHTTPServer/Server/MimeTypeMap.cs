@@ -4,31 +4,31 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace MimeTypes {
-	public static class MimeTypeMap {
+	internal static class MimeTypeMap {
 		private static readonly Lazy<IDictionary<string, string>> _mappings = new Lazy<IDictionary<string, string>>(BuildMappings);
 
 		private static IDictionary<string, string> BuildMappings() {
 			var mappings = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase) {
 
-                #region Big freaking list of mime types
-            
-                // maps both ways,
-                // extension -> mime type
-                //   and
-                // mime type -> extension
-                //
-                // any mime types on left side not pre-loaded on right side, are added automatically
-                // some mime types can map to multiple extensions, so to get a deterministic mapping,
-                // add those to the dictionary specifcially
-                //
-                // combination of values from Windows 7 Registry and 
-                // from C:\Windows\System32\inetsrv\config\applicationHost.config
-                // some added, including .7z and .dat
-                //
-                // Some added based on http://www.iana.org/assignments/media-types/media-types.xhtml
-                // which lists mime types, but not extensions
-                //
-                {".323", "text/h323"},
+				#region Big freaking list of mime types
+			
+				// maps both ways,
+				// extension -> mime type
+				//   and
+				// mime type -> extension
+				//
+				// any mime types on left side not pre-loaded on right side, are added automatically
+				// some mime types can map to multiple extensions, so to get a deterministic mapping,
+				// add those to the dictionary specifcially
+				//
+				// combination of values from Windows 7 Registry and 
+				// from C:\Windows\System32\inetsrv\config\applicationHost.config
+				// some added, including .7z and .dat
+				//
+				// Some added based on http://www.iana.org/assignments/media-types/media-types.xhtml
+				// which lists mime types, but not extensions
+				//
+				{".323", "text/h323"},
 				{".3g2", "video/3gpp2"},
 				{".3gp", "video/3gpp"},
 				{".3gp2", "video/3gpp2"},
@@ -551,7 +551,7 @@ namespace MimeTypes {
 				{".webarchive", "application/x-safari-webarchive"},
 				{".webm", "video/webm"},
 				{".webp", "image/webp"}, /* https://en.wikipedia.org/wiki/WebP */
-                {".webtest", "application/xml"},
+				{".webtest", "application/xml"},
 				{".wiq", "application/xml"},
 				{".wiz", "application/msword"},
 				{".wks", "application/vnd.ms-works"},
@@ -639,7 +639,7 @@ namespace MimeTypes {
 				{"application/x-zip-compressed", ".zip"},
 				{"application/xhtml+xml", ".xhtml"},
 				{"application/xml", ".xml"},  // anomoly, .xml -> text/xml, but application/xml -> many thingss, but all are xml, so safest is .xml
-                {"audio/aac", ".AAC"},
+				{"audio/aac", ".AAC"},
 				{"audio/aiff", ".aiff"},
 				{"audio/basic", ".snd"},
 				{"audio/mid", ".midi"},
@@ -670,9 +670,9 @@ namespace MimeTypes {
 				{"video/x-ms-asf", ".asf"},
 				{"x-world/x-vrml", ".xof"},
 
-                #endregion
+				#endregion
 
-                };
+				};
 
 			var cache = mappings.ToList(); // need ToList() to avoid modifying while still enumerating
 

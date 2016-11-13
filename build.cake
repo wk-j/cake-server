@@ -35,6 +35,8 @@ Task("Pack-Nuget")
 
         CleanDirectory("./nuget");
         var full = getFullName("Cake.SimpleHTTPServer.dll");
+        var xml = getFullName("Cake.SimpleHTTPServer.XML");
+
         //var mime = getFullName("MimeTypeMap.dll");
         var version = ParseAssemblyInfo("./Cake.SimpleHTTPServer/Properties/AssemblyInfo.cs").AssemblyVersion;
         var settings   = new NuGetPackSettings {
@@ -58,7 +60,7 @@ Task("Pack-Nuget")
                         NoPackageAnalysis       = true,
                         Files                   = new [] {
                                                              new NuSpecContent { Source = full, Target = "bin/net45" },
-                                                             //new NuSpecContent { Source = mime, Target = "bin/net45" },
+                                                             new NuSpecContent { Source = xml , Target = "bin/net45" },
                                                           },
                         BasePath                = "./",
                         OutputDirectory         = "./nuget"

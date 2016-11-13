@@ -41,7 +41,7 @@ namespace Cake.SimpleHTTPServer {
 
 		private void Listen() {
 			_listener = new HttpListener();
-			_listener.Prefixes.Add("http://*:" + _port.ToString() + "/");
+			_listener.Prefixes.Add("http://localhost:" + _port + "/");
 			_listener.Start();
 			while (true) {
 				try {

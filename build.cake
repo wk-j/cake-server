@@ -2,9 +2,8 @@
 var target = Argument("target", "default");
 var npi = EnvironmentVariable("npi");
 
-Task("push")
-    .IsDependentOn("pack")
-    .Description("Push nuget")
+Task("Publish-Nuget")
+    .IsDependentOn("Pack-Nuget")
     .Does(() => {
         var nupkg = new DirectoryInfo("./nuget").GetFiles("*.nupkg").LastOrDefault();
         var package = nupkg.FullName;
@@ -14,8 +13,7 @@ Task("push")
         });
     });
 
-Task("build")
-    .Description("Build")
+Task("Build")
     .Does(() => {
         DotNetBuild("./Cake.SimpleHTTPServer.sln", settings =>
             settings.SetConfiguration("Release")
@@ -24,9 +22,8 @@ Task("build")
             .WithProperty("TreatWarningsAsErrors","true"));
     });
 
-Task("pack")
-    .Description("Create pack")
-    .IsDependentOn("build")
+Task("Pack-Nuget")
+    .IsDependentOn("Build")
     .Does(() => {
         Func<string,string> getFullName = (file) => {
             var fullName = new DirectoryInfo("./Cake.SimpleHTTPServer/bin/Release")
@@ -50,9 +47,9 @@ Task("pack")
                         Description             = "Cake.SimpleHTTPServer",
                         //NoDefaultExcludes       = true,
                         Summary                 = "SimpleHTTPServer file change",
-                        ProjectUrl              = new Uri("https://github.com/wk-j/cake-server"),
-                        IconUrl                 = new Uri("https://github.com/wk-j/cake-server"),
-                        LicenseUrl              = new Uri("https://github.com/wk-j/cake-server"),
+                        ProjectUrl              = new Uri("https://github.com/cake-addin/cake-server"),
+                        IconUrl                 = new Uri("https://github.com/cake-addin/cake-server"),
+                        LicenseUrl              = new Uri("https://github.com/cake-addin/cake-server"),
                         Copyright               = "MIT",
                         ReleaseNotes            = new [] { "New version"},
                         Tags                    = new [] {"Cake", "SimpleHTTPServer" },

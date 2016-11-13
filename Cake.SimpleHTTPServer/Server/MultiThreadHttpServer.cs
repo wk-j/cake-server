@@ -22,7 +22,8 @@ namespace Cake.SimpleHTTPServer {
 		}
 
 		public void Start(string path, int port) {
-			_listener.Prefixes.Add(String.Format(@"http://+:{0}/", port));
+			//_listener.Prefixes.Add(String.Format(@"http://+:{0}/", port));
+			_listener.Prefixes.Add(String.Format(@"http://localhost:{0}/", port));
 			_listener.Start();
 			_listenerThread.Start();
 

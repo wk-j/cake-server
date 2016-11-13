@@ -2,7 +2,9 @@
 
 https://gist.github.com/aksakalli/9191056
 
-- Not working under MONO !!!
+## Notes
+
+- This addin is not working under MONO.
 
 ## Install
 
@@ -10,19 +12,23 @@ https://gist.github.com/aksakalli/9191056
 #addin "nuget:?package=Cake.SimpleHTTPServer"
 ```
 
-## Start server
+## Start server in current directory
 
 ```csharp
-Task("server")
+Task("Start").Does(() => {
+    HTTPServer(9000);
+});
+```
+
+## Specify directory 
+
+```csharp
+Task("Start-Web")
     .Does(() => {
         var settings = new HTTPServerSettings {
-            Path = "./",
-            Port = 8080
+            Path = "./Web",
+            Port = 9000
         };
         HTTPServer(settings);
     });
 ```
-
-## License
-
-- MIT
